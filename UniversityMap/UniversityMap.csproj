@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\materials\svg\" />
+    <Folder Include="wwwroot\lib\materials\design\" />
+    <Folder Include="wwwroot\lib\materials\maps\" />
+    <Folder Include="wwwroot\lib\materials\panoramas\" />
+  </ItemGroup>
+
 </Project>
