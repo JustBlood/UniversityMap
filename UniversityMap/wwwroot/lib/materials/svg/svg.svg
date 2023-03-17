@@ -1,0 +1,6 @@
+﻿namespace UniversityMap.wwwroot.lib.materials.svg
+{
+    public class svg
+    {
+    }
+}
