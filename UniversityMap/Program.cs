@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using UniversityMap.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<UniversityMapContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityMapContext") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

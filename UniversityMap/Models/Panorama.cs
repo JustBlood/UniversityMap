@@ -12,10 +12,11 @@ namespace UniversityMap.Models
         public int Id { get; set; }
         public string? Tag { get; set; }
         public byte[]? Image { get; set; }
-        public int Left { get; set; }
-        public int Top { get; set; }
-        public int Right { get; set; }
-        public int Bottom { get; set; }
+        // To-do сделать стороны Тегами или ключами к записям.
+        public string? Left { get; set; }
+        public string? Top { get; set; }
+        public string? Right { get; set; }
+        public string? Bottom { get; set; }
         public int MapId { get; set; }
         public Map? Map { get; set; }
     }
