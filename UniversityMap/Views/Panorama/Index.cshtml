@@ -1,0 +1,11 @@
+﻿@model Panorama
+
+@if (Model != null && Model.Image != null)
+{
+    <img style='height:1080px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
+}
+else
+{
+    <h1>Увы, у панорамы нэма картинки(</h1>
+    <h2>(Или панорамы не существует)</h2>
+}
