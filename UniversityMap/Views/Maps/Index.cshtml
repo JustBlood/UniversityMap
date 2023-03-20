@@ -1,0 +1,28 @@
+﻿@model Map
+@section Scripts{
+    @{
+        if (Model != null)
+        {
+            <link rel="stylesheet" media="all" href="https://jvectormap.com/css/jquery-jvectormap-2.0.3.css"/>
+            <script src="https://jvectormap.com/js/jquery-1.8.2.min.js"></script>
+            <script src="https://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
+            <script>@Html.Raw(Model.JQueryScript)</script>
+            <script>
+            $(function(){
+                $('#map').vectorMap({
+                map: 'map'
+                });
+            })
+            </script>   
+        }
+    }
+}
+<h1>Салам Алейкум всем нашим!</h1>
+<p>Потерялся? Ну наконец-то ты сможешь юзнуть карту! Просто заполни форму ниже и перейди к нужному корпусу Сиииииииииииииу</p>
+
+<button onclick="document.location='@ViewData["Url"]/А'">А</button>
+    <button onclick="document.location='@ViewData["Url"]/Б'">Б</button>
+    <button onclick="document.location='@ViewData["Url"]/В'">В</button>
+
+
+<div class="container" id="map" style="width: 600px; height: 600px"></div>

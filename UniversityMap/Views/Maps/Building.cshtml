@@ -1,0 +1,35 @@
+﻿@model Map
+@section Scripts{
+    @{
+        if (Model != null)
+        {
+            <link rel="stylesheet" media="all" href="https://jvectormap.com/css/jquery-jvectormap-2.0.3.css"/>
+            <script src="https://jvectormap.com/js/jquery-1.8.2.min.js"></script>
+            <script src="https://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
+            <script>@Html.Raw(Model.JQueryScript)</script>
+            <script>
+            $(function(){
+                $('#map').vectorMap({
+                map: 'map'
+                });
+            })
+            </script>   
+        }
+    }
+}
+
+<h1>Корпус: @ViewData["Building"]</h1>
+@{
+    if (Model == null)
+    {
+        <h1>Выбранный этаж недоступен, пожалуйста, выберите другой...</h1>
+    }
+}
+    
+<button onclick="document.location='@ViewData["Url"]?floor=1'">1</button>
+<button onclick="document.location='@ViewData["Url"]?floor=2'">2</button>
+<button onclick="document.location='@ViewData["Url"]?floor=3'">3</button>
+<button onclick="document.location='@ViewData["Url"]?floor=4'">4</button>
+<button onclick="document.location='@ViewData["Url"]?floor=5'">5</button>
+
+<div class="container" id="map" style="width: 600px; height: 600px"></div>
