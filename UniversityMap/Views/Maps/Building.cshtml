@@ -17,12 +17,19 @@
         }
     }
 }
-<h1>Салам Алейкум всем нашим!</h1>
-<p>Потерялся? Ну наконец-то ты сможешь юзнуть карту! Просто заполни форму ниже и перейди к нужному корпусу Сиииииииииииииу</p>
 
-<button onclick="document.location='@ViewData["Url"]/А'">А</button>
-    <button onclick="document.location='@ViewData["Url"]/Б'">Б</button>
-    <button onclick="document.location='@ViewData["Url"]/В'">В</button>
-
+<h1>Корпус: @ViewData["Building"]</h1>
+@{
+    if (Model == null)
+    {
+        <h1>Выбранный этаж недоступен, пожалуйста, выберите другой...</h1>
+    }
+}
+    
+<button onclick="document.location='@ViewData["Url"]?floor=1'">1</button>
+<button onclick="document.location='@ViewData["Url"]?floor=2'">2</button>
+<button onclick="document.location='@ViewData["Url"]?floor=3'">3</button>
+<button onclick="document.location='@ViewData["Url"]?floor=4'">4</button>
+<button onclick="document.location='@ViewData["Url"]?floor=5'">5</button>
 
 <div class="container" id="map" style="width: 600px; height: 600px"></div>

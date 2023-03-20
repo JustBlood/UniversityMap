@@ -10,90 +10,87 @@ using UniversityMap.Models;
 
 namespace UniversityMap.Controllers
 {
-    public class PanoramasController : Controller
+    public class MapsCRUDController : Controller
     {
         private readonly UniversityMapContext _context;
 
-        public PanoramasController(UniversityMapContext context)
+        public MapsCRUDController(UniversityMapContext context)
         {
             _context = context;
         }
 
-        // GET: Panoramas
+        // GET: Maps
         public async Task<IActionResult> Index()
         {
-            var universityMapContext = _context.Panoramas.Include(p => p.Map);
-            return View(await universityMapContext.ToListAsync());
+            return _context.Maps != null ?
+                        View(await _context.Maps.ToListAsync()) :
+                        Problem("Entity set 'UniversityMapContext.Map'  is null.");
         }
 
-        // GET: Panoramas/Details/5
+        // GET: Maps/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Panoramas == null)
+            if (id == null || _context.Maps == null)
             {
                 return NotFound();
             }
 
-            var panorama = await _context.Panoramas
-                .Include(p => p.Map)
+            var map = await _context.Maps
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (panorama == null)
+            if (map == null)
             {
                 return NotFound();
             }
 
-            return View(panorama);
+            return View(map);
         }
 
-        // GET: Panoramas/Create
+        // GET: Maps/Create
         public IActionResult Create()
         {
-            ViewData["MapId"] = new SelectList(_context.Maps, "Id", "Id");
             return View();
         }
 
-        // POST: Panoramas/Create
+        // POST: Maps/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tag,Image,Left,Top,Right,Bottom,MapId")] Panorama panorama)
+        public async Task<IActionResult> Create([Bind("Id,Building,Floor,SvgMap,JQueryScript")] Map map)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(panorama);
+                _context.Add(map);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MapId"] = new SelectList(_context.Maps, "Id", "Id", panorama.MapId);
-            return View(panorama);
+            return View(map);
         }
 
-        // GET: Panoramas/Edit/5
+        // GET: Maps/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Panoramas == null)
+            if (id == null || _context.Maps == null)
             {
                 return NotFound();
             }
 
-            var panorama = await _context.Panoramas.FindAsync(id);
-            if (panorama == null)
+            var map = await _context.Maps.FindAsync(id);
+            if (map == null)
             {
                 return NotFound();
             }
-            ViewData["MapId"] = new SelectList(_context.Maps, "Id", "Id", panorama.MapId);
-            return View(panorama);
+            return View(map);
         }
 
-        // POST: Panoramas/Edit/5
+        // POST: Maps/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tag,Image,Left,Top,Right,Bottom,MapId")] Panorama panorama)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Building,Floor,SvgMap,JQueryScript")] Map map)
         {
-            if (id != panorama.Id)
+            if (id != map.Id)
             {
                 return NotFound();
             }
@@ -102,12 +99,12 @@ namespace UniversityMap.Controllers
             {
                 try
                 {
-                    _context.Update(panorama);
+                    _context.Update(map);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PanoramaExists(panorama.Id))
+                    if (!MapExists(map.Id))
                     {
                         return NotFound();
                     }
@@ -118,51 +115,49 @@ namespace UniversityMap.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MapId"] = new SelectList(_context.Maps, "Id", "Id", panorama.MapId);
-            return View(panorama);
+            return View(map);
         }
 
-        // GET: Panoramas/Delete/5
+        // GET: Maps/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Panoramas == null)
+            if (id == null || _context.Maps == null)
             {
                 return NotFound();
             }
 
-            var panorama = await _context.Panoramas
-                .Include(p => p.Map)
+            var map = await _context.Maps
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (panorama == null)
+            if (map == null)
             {
                 return NotFound();
             }
 
-            return View(panorama);
+            return View(map);
         }
 
-        // POST: Panoramas/Delete/5
+        // POST: Maps/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Panoramas == null)
+            if (_context.Maps == null)
             {
-                return Problem("Entity set 'UniversityMapContext.Panoramas'  is null.");
+                return Problem("Entity set 'UniversityMapContext.Map'  is null.");
             }
-            var panorama = await _context.Panoramas.FindAsync(id);
-            if (panorama != null)
+            var map = await _context.Maps.FindAsync(id);
+            if (map != null)
             {
-                _context.Panoramas.Remove(panorama);
+                _context.Maps.Remove(map);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PanoramaExists(int id)
+        private bool MapExists(int id)
         {
-            return (_context.Panoramas?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Maps?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
