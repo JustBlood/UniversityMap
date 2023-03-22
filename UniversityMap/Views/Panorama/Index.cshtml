@@ -2,7 +2,39 @@
 
 @if (Model != null && Model.Image != null)
 {
-    <img style='height:1080px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
+    @section Scripts
+    {
+        <link rel="stylesheet" href="~/css/panorama/effect.css"> 
+        <!-- ipanorama styles -->
+        <link rel="stylesheet" href="~/css/panorama/ipanorama.css">
+        <link rel="stylesheet" href="~/css/panorama/ipanorama.theme.default.css">
+        <!-- /end ipanorama styles -->
+        <!-- main style -->
+        <style>
+        [role="main"] {
+            width: 1280px;
+            height: 800px;
+        }
+
+        #mypanorama {
+            position: relative;
+            height: inherit;
+            width: inherit;
+        }
+        </style>
+            <script src="~/js/panorama/jquery.min.js"></script>
+            <script src="~/js/panorama/three.min.js"></script>
+            <script src="~/js/panorama/jquery.ipanorama.min.js"></script>
+        <script type="text/javascript">
+        @Html.Raw(@ViewData["PanoramaOptionsScript"])
+        </script>
+}
+}
+
+@if (Model != null && Model.Image != null)
+{
+    <div id="mypanorama"></div>
+    @*<img src="@Url.Action("show", new { @Model.Id })">*@
 }
 else
 {
