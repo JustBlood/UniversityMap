@@ -1,0 +1,67 @@
+body {
+    background-color:#FFFEEB;
+    margin: 0;
+    font-family: 'Arial';
+    letter-spacing: 0.1em;
+    line-height: 125%;
+    font-weight: lighter;
+}
+#block-body {
+    width: 85%;
+    height: auto;
+    margin: 0px auto;
+    padding-top: 2em;
+}
+header {
+    height: 50px;
+    width: auto;
+    margin: 0px auto;
+    padding: 0px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2); 
+}
+.logo {
+    height: 50px;
+    display: block;
+    float: left;
+    padding-left: 4px;
+    margin-left: 7%;
+}
+.logo span {
+    font-size: 32px;
+    font-weight: lighter;
+}  
+.logo img {
+    top: 4px;
+}
+.top-menu {
+    height: 50px;
+    
+    margin: 0px;
+    padding: 0px 0px;
+    list-style: none;
+    display: flex;
+    list-style: none;
+}
+nav {
+    margin-left: 430px;
+}
+.top-menu a {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: normal;
+    width: 150px;
+    color: black;
+    padding-top: 23px;
+}
+.top-menu li:hover {
+    transition: all 0.5s ease;
+    background-color: #f7ebd3;
+}
+.info{
+    width: 90%;
+}
+.info h2 {
+    font-weight: normal;
+}
