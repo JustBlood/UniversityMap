@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>О проекте</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    @await RenderSectionAsync("Scripts", required: false)
+    <title>@ViewData["Title"] - UniversityMap</title>
 </head>
 
 <body>
     <header>
+        <a asp-controller="Home" asp-action="Index">
         <div class="logo">
-            <img src="logo.png">
+            <img src="~/lib/materials/design/logo.png">
             <span>CFU-Map</span>
         </div>
+        </a>
         <nav>
             <ul class="top-menu">
-                    <li><a href="#">О ПРОЕКТЕ</a></li>
-                    <li><a href="#">КАРТЫ</a></li>
-                    <li><a href="#">ПАНОРАМЫ</a></li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">О ПРОЕКТЕ</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Maps" asp-action="Index">КАРТЫ</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Panoramas" asp-action="Index">ПАНОРАМЫ</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="MapsCRUD" asp-action="Index">MapsCRUD</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">PanoramasCRUD</a>
+                    </li>
             </ul>
         </nav>
     </header>
 
     <div id="block-body">
-    
+        @RenderBody()
     </div>
 </body>
 </html>
