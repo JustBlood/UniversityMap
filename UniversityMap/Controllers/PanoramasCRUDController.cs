@@ -56,21 +56,6 @@ namespace UniversityMap.Controllers
         // POST: Panoramas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,Tag,Image,Left,Top,Right,Bottom,MapId")] Panorama panorama)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-
-        //        _context.Add(panorama);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["MapId"] = new SelectList(_context.Maps, "Id", "Id", panorama.MapId);
-        //    return View(panorama);
-        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FileUpload fileObj)
