@@ -1,6 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Security.Claims;
 using UniversityMap.Data;
+
+const string AuthScheme = "cookie";
+const string AuthScheme2 = "cookie2";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +14,20 @@ builder.Services.AddDbContext<UniversityMapContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(AuthScheme)
+    .AddCookie(AuthScheme)
+    .AddCookie(AuthScheme2);
+
+//builder.Services.AddAuthorization(builder =>
+//{
+//    builder.AddPolicy("role", pb =>
+//    {
+//        pb.RequireAuthenticatedUser()
+//        .AddAuthenticationSchemes(AuthScheme)
+//        .RequireClaim("rl", "user");
+//    });
+//});
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -25,7 +44,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "maps",
