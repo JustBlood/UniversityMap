@@ -28,9 +28,6 @@ namespace UniversityMap.Controllers
                 var PanoramaOptionsScript = CreatePanoramaOptions(panorama.Id);
                 ViewData["PanoramaOptionsScript"] = PanoramaOptionsScript;
             }
-            // Сохраняет временный файлик, изменяющий ссылку на изображение функцией CreatePanoramaOptions
-            //System.IO.File.Delete("wwwroot/js/panorama/panorama-options-temp.js");
-            //System.IO.File.WriteAllText("wwwroot/js/panorama/panorama-options-temp.js", PanoramaOptionsScript);
 
             return View(panorama);
         }

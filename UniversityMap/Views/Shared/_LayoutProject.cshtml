@@ -27,12 +27,33 @@
                     <li>
                         <a asp-controller="Panorama" asp-action="Index">ПАНОРАМЫ</a>
                     </li>
-                    <li>
-                        <a asp-area="" asp-controller="MapsCRUD" asp-action="Index">MapsCRUD</a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">PanoramasCRUD</a>
-                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <input type="hidden" />
+                                <a href="#" onclick="this.parentNode.submit()">Выйти</a>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                        </li>
+                    }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">MapsCRUD</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">PanoramasCRUD</a>
+                        </li>
+                    }
             </ul>
         </nav>
     </header>
