@@ -10,62 +10,61 @@
 
 <body>
     <header>
-        <a asp-controller="Home" asp-action="Index">
-        <div class="logo">
+        <a class="logo" asp-controller="Home" asp-action="Index">           
             <img src="~/lib/materials/design/logo.png">
-            <span>CFU-Map</span>
-        </div>
+            <span>CFU-Map</span>           
         </a>
-        <nav>
-            <ul class="top-menu">
-                    <li>
-                        <a asp-controller="Home" asp-action="Index">О ПРОЕКТЕ</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Maps" asp-action="Index">КАРТЫ</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Panorama" asp-action="Index">ПАНОРАМЫ</a>
-                    </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <form method="post" asp-controller="Account" asp-action="Logout">
-                                <input type="hidden" />
-                                <a href="#" onclick="this.parentNode.submit()">Выйти</a>
-                            </form>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
-                        </li>
-                    }
-                    @if (User.IsInRole("admin"))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">MapsCRUD</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">PanoramasCRUD</a>
-                        </li>
-                    }
-            </ul>
-        </nav>
+        
+        <ul class="top-menu">
+            <li>
+                <a asp-controller="Home" asp-action="Index">О проекте</a>
+            </li>
+            <li>
+                <a asp-controller="Maps" asp-action="Index">Карты</a>
+            </li>
+            <li>
+                <a asp-controller="Panorama" asp-action="Index">Панорамы</a>
+            </li>
+            @if (User.IsInRole("admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">MapsCRUD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">PanoramasCRUD</a>
+                </li>
+            }
+        </ul>
+        <ul class="top-menu in_out">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        <input type="hidden" />
+                        <a href="#" onclick="this.parentNode.submit()">Выйти</a>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                </li>
+            }
+        </ul>       
     </header>
 
     <div id="block-body">
         @RenderBody()
     </div>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
-<footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - UniversityMap - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+</body>
 </html>
