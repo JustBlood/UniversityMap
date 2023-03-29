@@ -20,6 +20,6 @@
 3. Введите в Консоли команду: dotnet-ef database update
 
 edit: возможно при выполнении последней команды у вас выдаст ошибку - что SQL Server не установлен. Его нужно установить с оф. сайта: https://www.microsoft.com/ru-RU/download/details.aspx?id=101064.
-Также установить пакет SQL Server LocalDB: https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver16. Скачиваете, устанавливаете, дублируете команду №3 и всё должно заработать.
+Также установить пакет SQL Server LocalDB. Как скачать: https://metanit.com/sql/sqlserver/1.4.php. Скачиваете, устанавливаете, дублируете команду №3 и всё должно заработать.
 
 После данных манипуляций, все страницы будут доступны и у вас будет локальная база данных (в проект сохраняться она не будет, она в папке C:/users/user/ с расширением .mdf)
