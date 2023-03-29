@@ -20,7 +20,7 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="981.1" width="904.87" x="67.93" y="17.89"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="1280" width="1920" x="67.93" y="17.89"></sliceSourceBounds>
 		<optimizationSettings></optimizationSettings>
 	</sfw>
 </metadata>

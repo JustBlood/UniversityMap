@@ -15,6 +15,10 @@ namespace UniversityMap.Controllers
         {
             // показывает страницу карты
             ViewData["Url"] = $"/Maps";
+            ViewData["Buildings"] = _context.Maps
+                .Select(x => x.Building)
+                .Distinct()
+                .ToArray();
             return View();
         }
 
@@ -26,6 +30,10 @@ namespace UniversityMap.Controllers
                 && x.Floor == floor);
             ViewData["Building"] = building;
             ViewData["Url"] = $"/Maps/{building}";
+            ViewData["Floors"] = _context.Maps
+                .Select(x => x.Floor)
+                .Distinct()
+                .ToArray();
             return View(map);
         }
     }

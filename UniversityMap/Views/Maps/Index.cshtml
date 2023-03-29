@@ -3,9 +3,9 @@
 <h1>Салам Алейкум всем нашим!</h1>
 <p>Потерялся? Ну наконец-то ты сможешь юзнуть карту! Просто заполни форму ниже и перейди к нужному корпусу Сиииииииииииииу</p>
 
-<button onclick="document.location='@ViewData["Url"]/А'">А</button>
-    <button onclick="document.location='@ViewData["Url"]/Б'">Б</button>
-    <button onclick="document.location='@ViewData["Url"]/В'">В</button>
-
+@foreach (var building in (char[])ViewData["Buildings"])
+{
+    <button onclick="document.location='@ViewData["Url"]/@building'">Корпус @building</button>
+}
 
 <div class="container" id="map" style="width: 600px; height: 600px"></div>
