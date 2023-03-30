@@ -1,59 +1,66 @@
 body {
-    background-color:#FFFEEB;
+    background-color: #FFFEEB;
     margin: 0;
     font-family: 'Arial';
     letter-spacing: 0.1em;
     line-height: 125%;
     font-weight: lighter;
+    min-height: 100vh;
 }
 #block-body {
     width: 85%;
     height: auto;
     margin: 20px auto;
     padding-top: 2em;
+    min-height: 80vh;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 header {
     height: 50px;
     width: auto;
     margin: 0px auto;
     padding: 0px;
-    box-shadow: 0 5px 10px rgba(0,0,0,.2); 
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    display: flex;
+    justify-content: space-between;
+}
+header a {
+    text-decoration: none;
+    font-weight: normal;
+    color: black;
 }
 .logo {
     height: 50px;
-    display: block;
-    float: left;
-    padding-left: 4px;
     margin-left: 7%;
+    display: flex;
+    align-items: center;
 }
 .logo span {
     font-size: 32px;
     font-weight: lighter;
-}  
-.logo img {
-    top: 4px;
 }
 .top-menu {
     height: 50px;
-    
     margin: 0px;
     padding: 0px 0px;
     list-style: none;
     display: flex;
-    list-style: none;
+    align-items: center;
 }
-nav {
-    margin-left: 430px;
+.in_out{
+    margin-right: 7%;
 }
 .top-menu a {
-    display: block;
     text-align: center;
     font-size: 16px;
     text-decoration: none;
     font-weight: normal;
-    width: 150px;
+    width: auto;
     color: black;
-    padding-top: 23px;
+    padding: 15px 25px 15px;
+    display: block;
 }
 .top-menu li:hover {
     transition: all 0.5s ease;
@@ -64,4 +71,11 @@ nav {
 }
 .info h2 {
     font-weight: normal;
+}
+footer {
+    position: relative;
+    margin: -50px auto 0;
+    width: 85%;
+    display: flex;
+    justify-content: center;
 }
