@@ -1,36 +1,77 @@
 ﻿$(function () {
+
+    /*$('#focus-single').click(function () {
+        $('#map1').vectorMap('set', 'focus', { region: id9, animate: true });
+    });*/ // В будущем возможно добавим фокус региону (особенно при функции поиска надо будет)
+
     $('#map').vectorMap({
         map: 'map',
 
-        // backgroundColor: 'transparent',
-        // создает прозрачный фон (ставить после разукрашивания аудиторий)
+        backgroundColor: 'transparent',
+        // создает прозрачный фон
+
+        /*markers: [{
+            coords: [60, 110],
+            name: 'panoram',
+            style: { fill: 'yellow' }
+        }],*/ // на случай, если будем делать панорамы через кнопки, а не полигоны
 
         series: {
             regions: [{
                 values: { // регионы (айдишники) и типы их цвета (см. ниже)
-                    id9: 'Study'
+                    // имена писались на русском языке, поэтому тут тоже надо писать на русском
+                    '302А': 'Study',
+                    '323А': 'Study',
+                    '307А': 'Study',
+                    '308А': 'Study',
+                    '315А': 'Study',
+                    '316А': 'Study',
+                    '322А': 'Study',
+
+                    'S_R1': 'Stairs',
+                    'S_L': 'Stairs',
+                    'S_R2': 'Stairs',
+
+                    'WC-m': 'Toilet',
+                    '-0': 'Toilet'
+          
                     // При добавлении большего количества элементов 
                     // надо ставить запятые
                 },
                 scale: { // типы цветов, название группы - код цвета
-                    "Study": "#73bb43"
+                    "Study": 'green',
+                    "Stairs": 'grey',
+                    "Toilet": 'red'
                     // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
             }]
         },
-        regionLabelStyle: {
+        regionStyle: {
+            initial: { // заполнение полигонов цветом и обводкой по умолчанию
+                fill: "orange",
+                "fill-opacity": 0.2, // непрозрачность
+                stroke: "black",     // обводка
+                "stroke-width": 0.5,
+                "stroke-opacity": 1,
+            }
+        },
+        regionLabelStyle: { // номера аудиторий (айдишники)
             initial: {
-                'font-size': '1vh',
-                fill: '#B90E32',
+                'font-family': 'cursive',
+                'font-size': '1.5vh',
+                fill: 'black',
             },
             hover: {
-                fill: 'black',
+
             }
         },
         labels: {
             regions: {
                 render: function (code) {
+                    if (code[0] == 'p') {
+                        return; 
+                    }
                     return code;
                 },
             },
