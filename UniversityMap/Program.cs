@@ -9,14 +9,13 @@ internal class Program
     private static async Task Main(string[] args)
     {
         const string AuthScheme = "cookie";
-        const string AuthScheme2 = "cookie2";
 
         var builder = WebApplication.CreateBuilder(args);
 
         //builder.Services.AddDbContext<UniversityMapContext>(options =>
-        //    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityMapContext") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
+        //    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
         builder.Services.AddDbContext<UniversityMapContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
+            options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
 
 
         // Add services to the container.
@@ -34,13 +33,14 @@ internal class Program
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddAuthentication(AuthScheme)
-            .AddCookie(AuthScheme)
-            .AddCookie(AuthScheme2);
+            .AddCookie(AuthScheme);
 
         
         builder.Services.AddAuthorization();
 
         var app = builder.Build();
+
+        app.UseHttpsRedirection();
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
@@ -50,7 +50,18 @@ internal class Program
             app.UseHsts();
         }
 
-        using(var scope = app.Services.CreateScope())
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+
+            var context = services.GetRequiredService<UniversityMapContext>();
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+            }
+        }
+
+        using (var scope = app.Services.CreateScope())
         {
             var services = scope.ServiceProvider;
 
@@ -59,7 +70,7 @@ internal class Program
             await SeedData.Initialize(userManager, roleManager);
         }
 
-        app.UseHttpsRedirection();
+
         app.UseStaticFiles();
 
         app.UseRouting();

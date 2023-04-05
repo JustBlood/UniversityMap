@@ -1,0 +1,42 @@
+version: '3.4'
+
+networks:
+  asp:
+    driver: bridge
+
+volumes:
+  db_volume:
+
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "UniversityMap"
+    networks:
+      - asp
+  
+  universitymap:
+    image: universytymap:my
+    build:
+      context: .
+      dockerfile: UniversityMap/Dockerfile
+    ports:
+     - mode: ingress
+       target: 443
+       published: "443"
+       protocol: tcp
+     - mode: ingress
+       target: 80
+       published: "80"
+       protocol: tcp
+    environment:
+      DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
+    networks:
+      - asp
