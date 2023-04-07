@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UniversityMap.Data;
@@ -11,9 +12,10 @@ using UniversityMap.Data;
 namespace UniversityMap.Migrations
 {
     [DbContext(typeof(UniversityMapContext))]
-    partial class UniversityMapContextModelSnapshot : ModelSnapshot
+    [Migration("20230406145042_InitialPostgreMiration")]
+    partial class InitialPostgreMiration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,13 +164,13 @@ namespace UniversityMap.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<char>("Building")
-                        .HasColumnType("character(1)");
-
                     b.Property<int>("Floor")
                         .HasColumnType("integer");
 
                     b.Property<string>("JQueryScript")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.Property<string>("SvgMap")
@@ -198,6 +200,9 @@ namespace UniversityMap.Migrations
 
                     b.Property<int>("MapId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("PanoramaOptionsScript")
+                        .HasColumnType("text");
 
                     b.Property<string>("Right")
                         .HasColumnType("text");

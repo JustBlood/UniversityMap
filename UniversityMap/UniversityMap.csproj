@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\lib\materials\svg\" />
     <Folder Include="wwwroot\lib\materials\design\" />
     <Folder Include="wwwroot\lib\materials\maps\" />
     <Folder Include="wwwroot\lib\materials\panoramas\" />
+	<Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

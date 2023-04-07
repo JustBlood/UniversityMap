@@ -16,7 +16,8 @@ internal class Program
         //    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
         builder.Services.AddDbContext<UniversityMapContext>(options =>
             options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
-
+        //builder.Services.AddDbContext<UniversityMapContext>(options =>
+        //    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityMapContext") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
 
         // Add services to the container.
         builder.Services.AddIdentity<User, IdentityRole>(o =>
@@ -40,7 +41,7 @@ internal class Program
 
         var app = builder.Build();
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())

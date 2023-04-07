@@ -15,21 +15,25 @@ namespace UniversityMap.Controllers
         {
             // показывает страницу карты
             ViewData["Url"] = $"/Maps";
-            ViewData["Buildings"] = _context.Maps
-                .Select(x => x.Building)
+            ViewData["Names"] = _context.Maps
+                .Select(x => x.Name)
+                .Distinct()
+                .ToArray();
+            var a = _context.Maps
+                .Select(x => x.Name)
                 .Distinct()
                 .ToArray();
             return View();
         }
 
-        [Route("/Maps/{building}")]
-        public IActionResult Building(char building, int floor = 1)
+        [Route("/Maps/{name}")]
+        public IActionResult Building(string name, int floor = 1)
         {
             var map = _context.Maps
-                .SingleOrDefault(x => x.Building == building
+                .SingleOrDefault(x => x.Name == name
                 && x.Floor == floor);
-            ViewData["Building"] = building;
-            ViewData["Url"] = $"/Maps/{building}";
+            ViewData["Name"] = name;
+            ViewData["Url"] = $"/Maps/{name}/";
             ViewData["Floors"] = _context.Maps
                 .Select(x => x.Floor)
                 .Distinct()

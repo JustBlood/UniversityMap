@@ -58,7 +58,7 @@ namespace UniversityMap.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Building,Floor,SvgMap,JQueryScript")] Map map)
+        public async Task<IActionResult> Create([Bind("Id,Name,Floor,SvgMap,JQueryScript")] Map map)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace UniversityMap.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Building,Floor,SvgMap,JQueryScript")] Map map)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Floor,SvgMap,JQueryScript")] Map map)
         {
             if (id != map.Id)
             {

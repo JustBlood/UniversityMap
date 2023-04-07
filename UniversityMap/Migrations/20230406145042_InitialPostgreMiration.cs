@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace UniversityMap.Migrations
 {
-    public partial class InitialMigrate : Migration
+    public partial class InitialPostgreMiration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,7 +55,7 @@ namespace UniversityMap.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Building = table.Column<char>(type: "character(1)", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: true),
                     Floor = table.Column<int>(type: "integer", nullable: false),
                     SvgMap = table.Column<string>(type: "text", nullable: true),
                     JQueryScript = table.Column<string>(type: "text", nullable: true)
@@ -183,7 +183,8 @@ namespace UniversityMap.Migrations
                     Top = table.Column<string>(type: "text", nullable: true),
                     Right = table.Column<string>(type: "text", nullable: true),
                     Bottom = table.Column<string>(type: "text", nullable: true),
-                    MapId = table.Column<int>(type: "integer", nullable: false)
+                    MapId = table.Column<int>(type: "integer", nullable: false),
+                    PanoramaOptionsScript = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

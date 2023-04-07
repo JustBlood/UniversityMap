@@ -3,7 +3,7 @@
 <h1>Салам Алейкум всем нашим!</h1>
 <p>Потерялся? Ну наконец-то ты сможешь юзнуть карту! Просто заполни форму ниже и перейди к нужному корпусу Сиииииииииииииу</p>
 
-@foreach (var building in (char[])ViewData["Buildings"])
+@foreach (var building in (string[])ViewData["Names"])
 {
     <button onclick="document.location='@ViewData["Url"]/@building'">Корпус @building</button>
 }
