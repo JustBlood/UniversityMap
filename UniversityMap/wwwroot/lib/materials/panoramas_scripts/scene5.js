@@ -1,0 +1,47 @@
+"scene1": {
+    "type": "cylinder",
+    "cubeTextureCount": "single",
+    "sphereWidthSegments": 100,
+    "sphereHeightSegments": 40,
+    "image": "https://psv4.userapi.com/c237031/u334396385/docs/d60/9b2a9717f331/5.jpg",
+    "yaw": -254.7418,
+    "pitch": -1.721,
+    "saveCamera": true,
+    "title": null,
+    "titleHtml": false,
+    "titleSelector": null,
+    "hotSpots": [
+      {
+        "title": null,
+        "yaw": -256.7418,
+        "pitch": -24.721,
+        "sceneId": "scene6",
+        "imageUrl": "https://hochudaryu.ru/upload/top.png",
+        "imageWidth": 50,
+        "imageHeight": 50,
+        "link": null,
+        "linkNewWindow": false,
+        "popoverHtml": true,
+        "popoverContent": null,
+        "popoverSelector": null,
+        "popoverLazyload": true,
+        "popoverShow": false
+      },
+      {
+        "title": null,
+        "yaw": -406.0152,
+        "pitch": -25.9352,
+        "sceneId": "scene4",
+        "imageUrl": "https://hochudaryu.ru/upload/top.png",
+        "imageWidth": 50,
+        "imageHeight": 50,
+        "link": null,
+        "linkNewWindow": false,
+        "popoverHtml": true,
+        "popoverContent": null,
+        "popoverSelector": null,
+        "popoverLazyload": true,
+        "popoverShow": false
+      }
+    ]
+  },
