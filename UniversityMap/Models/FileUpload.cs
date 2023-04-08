@@ -1,9 +1,15 @@
-﻿namespace UniversityMap.Models
+﻿using Microsoft.Build.Framework;
+
+namespace UniversityMap.Models
 {
     public class FileUpload
     {
         public int Id { get; set; }
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage="Обязательно вставьте фото")]
         public IFormFile Image { get; set; }
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Обязательно вставьте скрипт в нужном формате!")]
+        public string? PanoramaOptionsScript { get; set; }
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Обязательно вставьте уникальный тег!")]
         public string? Tag { get; set; }
         public string? Left { get; set; }
         public string? Top { get; set; }
@@ -21,6 +27,7 @@
             {
                 Id = Id,
                 Tag = Tag,
+                PanoramaOptionsScript = PanoramaOptionsScript,
                 Left = Left,
                 Top = Top,
                 Right = Right,

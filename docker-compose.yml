@@ -16,10 +16,7 @@ services:
     networks:
       - asp
   universitymap:
-    image: ${DOCKER_REGISTRY-}universitymap
-    build:
-      context: .
-      dockerfile: UniversityMap/Dockerfile
+    image: justblood/universitymap:latest
     environment:
       DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
     ports:
