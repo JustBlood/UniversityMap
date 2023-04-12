@@ -17,6 +17,8 @@ services:
       - asp
   universitymap:
     image: justblood/universitymap:latest
+    depends_on:
+      db
     environment:
       DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
     ports:
