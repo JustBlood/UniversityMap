@@ -15,10 +15,16 @@ services:
       POSTGRES_DB: "UniversityMap"
     networks:
       - asp
+    healthcheck:
+      test: ["CMD", "psql", "-U", "postgres"]
+      interval: 10s
+      retries: 3
+
   universitymap:
-    image: justblood/universitymap:latest
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    image: justblood/universitymap:latest
     environment:
       DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
     ports:
