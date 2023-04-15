@@ -12,10 +12,10 @@ internal class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<UniversityMapContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
         //builder.Services.AddDbContext<UniversityMapContext>(options =>
-        //    options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
+        //    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
+        builder.Services.AddDbContext<UniversityMapContext>(options =>
+            options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
         //builder.Services.AddDbContext<UniversityMapContext>(options =>
         //    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityMapContext") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
 

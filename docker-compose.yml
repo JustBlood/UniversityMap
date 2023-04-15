@@ -3,24 +3,61 @@ version: '3.4'
 networks:
   asp:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/16
 
 services:
+  load_balancer:
+    image: haproxy
+    ports:
+      - "80:80"
+      - "81:81"
+    networks:
+      asp:
+        ipv4_address: 192.168.0.120
+    volumes:
+      - .\UniversityMap\haproxy\:/usr/local/etc/haproxy
+
   db:
     image: postgres:15
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "root"
       POSTGRES_DB: "UniversityMap"
     networks:
-      - asp
+      asp:
+        ipv4_address: 192.168.0.200
+  
   universitymap:
     image: justblood/universitymap:latest
+    restart: always
+    build:
+      dockerfile: UniversityMap/Dockerfile
     environment:
-      DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
-    ports:
-     - "80:80"
-     - "443:443"
+      - DB_CONNECTION_STRING=host=db;port=5432;database=UniversityMap;username=postgres;password=root
     networks:
-     - asp
+      asp:
+        ipv4_address: 192.168.0.121
+  
+  universitymap1:
+    image: justblood/universitymap:latest
+    restart: always
+    build:
+      dockerfile: UniversityMap/Dockerfile
+    environment:
+      - DB_CONNECTION_STRING=host=db;port=5432;database=UniversityMap;username=postgres;password=root
+    networks:
+      asp:
+        ipv4_address: 192.168.0.122
+
+  universitymap2:
+    image: justblood/universitymap:latest
+    restart: always
+    build:
+      dockerfile: UniversityMap/Dockerfile
+    environment:
+      - DB_CONNECTION_STRING=host=db;port=5432;database=UniversityMap;username=postgres;password=root
+    networks:
+      asp:
+        ipv4_address: 192.168.0.123
