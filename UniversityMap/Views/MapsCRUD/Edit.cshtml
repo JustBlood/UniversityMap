@@ -1,40 +1,36 @@
-﻿@model UniversityMap.Models.Map
+﻿<div class="block-body">
+@model UniversityMap.Models.Map
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit map</h1>
 
-<h4>Map</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form class="box-form-create" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+             <div class="form-group">
+                <input asp-for="Name" class="form-control" placeholder="Name"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Floor" class="control-label"></label>
-                <input asp-for="Floor" class="form-control" />
+                <input asp-for="Floor" class="form-control" placeholder="Floor" />
                 <span asp-validation-for="Floor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SvgMap" class="control-label"></label>
-                <input asp-for="SvgMap" class="form-control" />
+                <input asp-for="SvgMap" class="form-control" placeholder="SvgMap"/>
                 <span asp-validation-for="SvgMap" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="JQueryScript" class="control-label"></label>
-                <input asp-for="JQueryScript" class="form-control" />
+                <input asp-for="JQueryScript" class="form-control" placeholder="JQueryScript" />
                 <span asp-validation-for="JQueryScript" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" value="" class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>
@@ -47,3 +43,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

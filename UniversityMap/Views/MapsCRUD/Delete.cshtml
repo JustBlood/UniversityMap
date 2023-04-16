@@ -1,4 +1,5 @@
-﻿@model UniversityMap.Models.Map
+﻿<div class="block-body">
+@model UniversityMap.Models.Map
 
 @{
     ViewData["Title"] = "Delete";
@@ -6,9 +7,8 @@
 
 <h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this map?</h3>
 <div>
-    <h4>Map</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -42,4 +42,5 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
+</div>
 </div>
