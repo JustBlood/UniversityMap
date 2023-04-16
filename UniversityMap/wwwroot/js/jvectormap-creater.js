@@ -20,30 +20,33 @@
             regions: [{
                 values: { // регионы (айдишники) и типы их цвета (см. ниже)
                     // имена писались на русском языке, поэтому тут тоже надо писать на русском
-                    '302А': 'Study',
-                    '323А': 'Study',
-                    '307А': 'Study',
-                    '308А': 'Study',
-                    '315А': 'Study',
-                    '316А': 'Study',
-                    '322А': 'Study',
-
                     'Л_п': 'Stairs',
                     'Л_в': 'Stairs',
                     'Л_л': 'Stairs',
-
                     'WC-m': 'Toilet',
                     'WC-w': 'Toilet',
-                    '.': 'unknown'
+                    '.': 'unknown',
+                    'p1': 'Hallway',
+                    'p2': 'Hallway',
+                    'p3': 'Hallway',
+                    'p4': 'Hallway',
+                    'p5': 'Hallway',
+                    'p6': 'Hallway',
+                    'p7': 'Hallway',
+                    'p8': 'Hallway',
+                    'p9': 'Hallway',
+                    'p10': 'Hallway',
+                    'p11': 'Hallway',
+                    'p12': 'Hallway'
 
                     // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
                 scale: { // типы цветов, название группы - код цвета
-                    "Study": 'green',
                     "Stairs": 'grey',
                     "Toilet": 'red',
-                    "unknown": 'blue'
+                    "unknown": 'blue',
+                    "Hallway": 'grey'
                     // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
@@ -51,7 +54,7 @@
         },
         regionStyle: {
             initial: { // заполнение полигонов цветом и обводкой по умолчанию
-                fill: "orange",
+                fill: "green",
                 "fill-opacity": 0.2, // непрозрачность
                 stroke: "black",     // обводка
                 "stroke-width": 0.5,
