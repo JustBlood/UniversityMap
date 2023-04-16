@@ -1,50 +1,43 @@
-﻿@model UniversityMap.Models.Panorama
+﻿<div class="block-body">
+@model UniversityMap.Models.Panorama
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Panorama</h4>
+<h1>Create panorama</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
+        <form class="box-form-create" asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Tag" class="control-label"></label>
-                <input asp-for="Tag" class="form-control" />
+                <input asp-for="Tag" class="form-control" placeholder="Tag" />
                 <span asp-validation-for="Tag" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" type="file" required />
-                <span asp-validation-for="Image" class="text-danger"></span>
+                <input asp-for="Image" class="form-control" type="file" placeholder="Image" required/>
             </div>
             <div class="form-group">
-                <label asp-for="PanoramaOptionsScript" class="control-label"></label>
-                <input asp-for="PanoramaOptionsScript" class="form-control" />
+                <input asp-for="PanoramaOptionsScript" class="form-control" placeholder="PanoramaOptionsScript"/>
                 <span asp-validation-for="PanoramaOptionsScript" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Left" class="control-label"></label>
-                <input asp-for="Left" class="form-control" />
+                <input asp-for="Left" class="form-control" placeholder="Left" />
                 <span asp-validation-for="Left" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Top" class="control-label"></label>
-                <input asp-for="Top" class="form-control" />
+                <input asp-for="Top" class="form-control" placeholder="Top" />
                 <span asp-validation-for="Top" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Right" class="control-label"></label>
-                <input asp-for="Right" class="form-control" />
-                <span asp-validation-for="Right" class="text-danger"></span>
+                <input asp-for="Right" class="form-control" placeholder="Right" />
+                <span asp-validation-for="Right" class="text-danger" ></span>
             </div>
             <div class="form-group">
-                <label asp-for="Bottom" class="control-label"></label>
-                <input asp-for="Bottom" class="form-control" />
+                <input asp-for="Bottom" class="form-control" placeholder="Bottom" />
                 <span asp-validation-for="Bottom" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -52,7 +45,7 @@
                 <select asp-for="MapId" class ="form-control" asp-items="ViewBag.MapId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="submit" value="Create" class="btn btn-primary">Create</button>
             </div>
         </form>
     </div>
@@ -65,3 +58,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

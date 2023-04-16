@@ -1,7 +1,8 @@
-﻿@model Map
+﻿<div class="block-body">
+@model Map
 
-<h1>Салам Алейкум всем нашим!</h1>
-<p>Потерялся? Ну наконец-то ты сможешь юзнуть карту! Просто заполни форму ниже и перейди к нужному корпусу Сиииииииииииииу</p>
+<h1>Выберите корпус для просмотра подробной карты:</h1>
+
 
 @foreach (var building in (string[])ViewData["Names"])
 {
@@ -9,3 +10,4 @@
 }
 
 <div class="container" id="map" style="width: 600px; height: 600px"></div>
+</div>
