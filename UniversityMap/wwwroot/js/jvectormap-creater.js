@@ -28,20 +28,22 @@
                     '316А': 'Study',
                     '322А': 'Study',
 
-                    'S_R1': 'Stairs',
-                    'S_L': 'Stairs',
-                    'S_R2': 'Stairs',
+                    'Л_п': 'Stairs',
+                    'Л_в': 'Stairs',
+                    'Л_л': 'Stairs',
 
                     'WC-m': 'Toilet',
-                    '-0': 'Toilet'
-          
-                    // При добавлении большего количества элементов 
+                    'WC-w': 'Toilet',
+                    '.': 'unknown'
+
+                    // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
                 scale: { // типы цветов, название группы - код цвета
                     "Study": 'green',
                     "Stairs": 'grey',
-                    "Toilet": 'red'
+                    "Toilet": 'red',
+                    "unknown": 'blue'
                     // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
@@ -70,7 +72,7 @@
             regions: {
                 render: function (code) {
                     if (code[0] == 'p') {
-                        return; 
+                        return;
                     }
                     return code;
                 },
