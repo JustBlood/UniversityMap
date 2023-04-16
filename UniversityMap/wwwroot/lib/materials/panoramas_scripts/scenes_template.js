@@ -1,4 +1,4 @@
-﻿$("#mypanorama").ipanorama({
+$("#mypanorama").ipanorama({
     "theme": "ipnrm-theme-default",
     "autoLoad": false,
     "autoRotate": false,
@@ -41,6 +41,6 @@
     "sceneFadeDuration": 3000,
     "sceneBackgroundLoad": false,
     "scenes": {
-        {{ scenes }}
+        
     }
 });
