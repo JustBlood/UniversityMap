@@ -46,7 +46,7 @@
                     "Stairs": 'grey',
                     "Toilet": 'red',
                     "unknown": 'blue',
-                    "Hallway": 'grey'
+                    "Hallway": 'orange'
                     // При добавлении большего количества элементов
                     // надо ставить запятые
                 },
