@@ -1,8 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.DataProtection.StackExchangeRedis;
 
 using UniversityMap.Data;
 using UniversityMap.Models;
+using System.Configuration;
+using StackExchange.Redis;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 
 internal class Program
 {
@@ -16,8 +22,6 @@ internal class Program
         //    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
         builder.Services.AddDbContext<UniversityMapContext>(options =>
             options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new InvalidOperationException("Connection string 'PostgreConnection' not found")));
-        //builder.Services.AddDbContext<UniversityMapContext>(options =>
-        //    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityMapContext") ?? throw new InvalidOperationException("Connection string 'UniversityMapContext' not found.")));
 
         // Add services to the container.
         builder.Services.AddIdentity<User, IdentityRole>(o =>
@@ -35,12 +39,19 @@ internal class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddAuthentication(AuthScheme)
             .AddCookie(AuthScheme);
-
         
         builder.Services.AddAuthorization();
 
-        var app = builder.Build();
+        builder.Services.AddDataProtection()
+            .PersistKeysToFileSystem(new DirectoryInfo(@"/var/keys"))
+            .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+            {
+                EncryptionAlgorithm = EncryptionAlgorithm.AES_256_GCM,
+                ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+            })
+            .SetApplicationName("MyApp");
 
+        var app = builder.Build();
         //app.UseHttpsRedirection();
 
         // Configure the HTTP request pipeline.
