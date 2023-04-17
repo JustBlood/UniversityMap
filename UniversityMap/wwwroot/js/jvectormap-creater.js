@@ -3,7 +3,7 @@
         map: 'map',
         regionLabelStyle: {
             initial: {
-                'font-size': '1vh',
+                'font-size': '1.5vh',
                 fill: '#B90E32',
             },
             hover: {

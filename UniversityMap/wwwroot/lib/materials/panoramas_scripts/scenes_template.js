@@ -1,6 +1,6 @@
 $("#mypanorama").ipanorama({
     "theme": "ipnrm-theme-default",
-    "autoLoad": false,
+    "autoLoad": true,
     "autoRotate": false,
     "autoRotateSpeed": 0.001,
     "autoRotateInactivityDelay": 3000,

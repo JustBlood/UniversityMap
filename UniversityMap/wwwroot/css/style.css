@@ -2,7 +2,7 @@
 
 body {
     /*background-color: #FFFEEB;*/
-    background-color: #FFFFFF;
+    background-color: #FCFCEE;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.1em;
@@ -20,7 +20,9 @@ body {
     padding-top: 20px;
     padding-bottom: 50px;
 }
+
 header {
+    background-color: #fcfcfc;
     height: 50px;
     width: auto;
     margin: 0px auto;
@@ -69,11 +71,23 @@ header a {
     transition: all 0.5s ease;
     background-color: #f7ebd3;
 }
-.info{
+.info {
     width: 90%;
+    font-size: 1.3em;
+    line-height: 1.8;
+}
+.info li {
+    margin: 10px auto;
+}
+.info h1 {
+    margin-top: 40px;
+    font-weight: normal;
+    text-align: center;
 }
 .info h2 {
+    margin-top: 100px;
     font-weight: normal;
+    text-align: center;
 }
 footer {
     position: relative;
@@ -98,13 +112,13 @@ footer {
 .greeting-content-wrap h2 {
     font-size: 36px;
     font-weight: 700;
-    color: #FFFEEB;
+    color: #FFFFFF;
 }
 .greeting-content-wrap h1 {
     margin-top: 12px;
     font-size: 60px;
     font-weight: 500;
-    color: #FFFEEB;
+    color: #FFFFFF;
 }
 
 
@@ -126,7 +140,7 @@ h1, h2, h3{
     width: 400px;
     padding: 0 30px 20px 30px;
     margin: 40px auto;
-        background: #FFFEEB;
+    background: #FFFEEB;
 
     border-radius: 0.5em;
     /*background: #f7ebd3;*/

@@ -15,19 +15,26 @@
 }
 
 <span class="span">Корпус: @ViewData["Name"]</span>
-<span class="span">Этаж:</span>
+@if ((ViewData["Floors"] as int[]).Length != 0)
+{
+        <span class="span">Этаж:</span>
+}
+else
+{
+        <span class="span">Корпус отсутствует в базе.</span>
+}
 
 @foreach (var floor in (int[])ViewData["Floors"])
 {
     <button onclick="document.location='@ViewData["Url"]?floor=@floor'">@floor</button>
 }
 
-@{
-    if (Model == null)
-    {
-        <h2>Выбранный этаж недоступен, пожалуйста, выберите другой...</h2>
-    }
+
+@if (Model == null)
+{
+    <h2>Выбранный этаж недоступен, пожалуйста, выберите другой...</h2>
 }
+
 
 <div class="container" id="map" style="width: 100%; height: 600px"></div>
 </div>
