@@ -1,16 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b7a62ea3-50aa-4382-997c-b9545af0a282</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\panorama\wraplink_main.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\panorama\wraplink_main.js" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\materials\svg\" />
     <Folder Include="wwwroot\lib\materials\design\" />
-    <Folder Include="wwwroot\lib\materials\maps\" />
     <Folder Include="wwwroot\lib\materials\panoramas\" />
+	<Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\wraplink_main.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +36,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
   </ItemGroup>
 
 </Project>

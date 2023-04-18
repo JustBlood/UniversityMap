@@ -1,0 +1,34 @@
+version: '3.4'
+
+networks:
+  asp:
+    driver: bridge
+
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "UniversityMap"
+    networks:
+      - asp
+    healthcheck:
+      test: ["CMD", "psql", "-U", "postgres"]
+      interval: 10s
+      retries: 3
+
+  universitymap:
+    depends_on:
+      db:
+        condition: service_healthy
+    image: justblood/universitymap:latest
+    environment:
+      DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
+    ports:
+     - "80:80"
+     - "443:443"
+    networks:
+     - asp

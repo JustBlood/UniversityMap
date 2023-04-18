@@ -18,6 +18,7 @@ namespace UniversityMap.Models
         public string? Right { get; set; }
         public string? Bottom { get; set; }
         public int MapId { get; set; }
+        public string? PanoramaOptionsScript { get; set; }
         public Map? Map { get; set; }
     }
 }

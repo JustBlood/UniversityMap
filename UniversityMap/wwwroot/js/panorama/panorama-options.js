@@ -1,5 +1,4 @@
-﻿$("#mypanorama").ipanorama(
-{
+﻿$("#mypanorama").ipanorama({
     "theme": "ipnrm-theme-default",
     "autoLoad": true,
     "autoRotate": false,
@@ -8,7 +7,7 @@
     "mouseWheelPreventDefault": true,
     "mouseWheelRotate": false,
     "mouseWheelRotateCoef": 0.2,
-    "mouseWheelZoom": false,
+    "mouseWheelZoom": true,
     "mouseWheelZoomCoef": 0.05,
     "hoverGrab": false,
     "hoverGrabYawCoef": 20,
@@ -42,16 +41,6 @@
     "sceneFadeDuration": 3000,
     "sceneBackgroundLoad": false,
     "scenes": {
-        "scene1": {
-            "type": "sphere",
-            "cubeTextureCount": "single",
-            "sphereWidthSegments": 100,
-            "sphereHeightSegments": 40,
-            "image": "+",
-            "saveCamera": true,
-            "title": null,
-            "titleHtml": false,
-            "titleSelector": null
-        }
+        {{ scenes }}
     }
 });

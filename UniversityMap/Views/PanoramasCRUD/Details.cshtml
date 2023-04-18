@@ -1,4 +1,5 @@
-﻿@model UniversityMap.Models.Panorama
+﻿<div class="block-body">
+@model UniversityMap.Models.Panorama
 
 @{
     ViewData["Title"] = "Details";
@@ -24,6 +25,12 @@
             {
                 <img style='height:300px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
             }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PanoramaOptionsScript)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PanoramaOptionsScript)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Left)
@@ -60,4 +67,5 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
 </div>

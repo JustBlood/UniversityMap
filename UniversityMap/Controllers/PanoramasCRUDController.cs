@@ -63,6 +63,9 @@ namespace UniversityMap.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FileUpload fileObj)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var panorama = fileObj.CreatePanorama();
             if (panorama != null)
             {
@@ -99,12 +102,15 @@ namespace UniversityMap.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, FileUpload fileObj)
         {
+            //if (!ModelState.IsValid)
+            //    return View(fileObj);
+
+
             var panorama = fileObj.CreatePanorama();
-            if (id != panorama.Id)
+            if (panorama == null || id != panorama.Id)
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
