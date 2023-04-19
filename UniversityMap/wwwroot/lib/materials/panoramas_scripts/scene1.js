@@ -28,13 +28,13 @@
         "popoverShow": false
       },
       {
-        "title": "left",
+        "title": "scene2",
         "yaw": -182.0504,
         "pitch": -7.636,
         "imageUrl": "/lib/images/arrow.png",
         "imageWidth": 50,
         "imageHeight": 50,
-          "link": "{{ left }}",
+        "link": "{{ right }}",
         "linkNewWindow": false,
         "popoverHtml": true,
         "popoverContent": null,
@@ -52,7 +52,7 @@
         "link": null,
         "linkNewWindow": false,
         "popoverHtml": true,
-        "popoverContent": "Кабинет",
+        "popoverContent": "Кабинет 301-А",
         "popoverSelector": null,
         "popoverLazyload": true,
         "popoverShow": false
