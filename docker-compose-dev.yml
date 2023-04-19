@@ -25,7 +25,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    image: justblood/universitymap:latest
+    image: dev
+    build:
+      dockerfile: UniversityMap/Dockerfile
     environment:
       DB_CONNECTION_STRING: "host=db;port=5432;database=UniversityMap;username=postgres;password=root"
     ports:
