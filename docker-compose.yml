@@ -6,6 +6,7 @@ networks:
 
 services:
   db:
+    container_name: db
     image: postgres:15
     ports:
       - "5432:5432"
@@ -24,11 +25,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    image: justblood/universitymap:latest
+    image: dev
+    build:
+      dockerfile: UniversityMap/Dockerfile
     environment:
-      DB_CONNECTION_STRING: host=db;port=5432;database=UniversityMap;username=postgres;password=root
+      DB_CONNECTION_STRING: "host=db;port=5432;database=UniversityMap;username=postgres;password=root"
     ports:
      - "80:80"
-     - "443:443"
     networks:
      - asp

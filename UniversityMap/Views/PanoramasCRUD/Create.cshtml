@@ -2,11 +2,11 @@
 @model UniversityMap.Models.Panorama
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создание панорамы";
 }
 
 
-<h1>Create panorama</h1>
+<h1>Создать панораму</h1>
 
 <hr />
 <div class="row">
@@ -14,14 +14,14 @@
         <form class="box-form-create" asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input asp-for="Tag" class="form-control" placeholder="Tag" />
+                <input asp-for="Tag" class="form-control" placeholder="Tag" required/>
                 <span asp-validation-for="Tag" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input asp-for="Image" class="form-control" type="file" placeholder="Image" required/>
             </div>
             <div class="form-group">
-                <input asp-for="PanoramaOptionsScript" class="form-control" placeholder="PanoramaOptionsScript"/>
+                <input asp-for="PanoramaOptionsScript" class="form-control" placeholder="PanoramaOptionsScript" required/>
                 <span asp-validation-for="PanoramaOptionsScript" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,17 +42,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="MapId" class="control-label"></label>
-                <select asp-for="MapId" class ="form-control" asp-items="ViewBag.MapId"></select>
+                <select asp-for="MapId" class ="form-control" asp-items="ViewBag.MapId" required></select>
             </div>
             <div class="form-group">
-                <button type="submit" value="Create" class="btn btn-primary">Create</button>
+                <button type="submit" value="Create" class="btn btn-primary">Создать</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">
+        <button asp-action="Index">Назад</button>
+    </a>
 </div>
 
 @section Scripts {
