@@ -14,7 +14,7 @@
     "hotSpots": [
       {
         "title": "scene12",
-        "yaw": -378.1818,
+        "yaw": 159.8974,
         "pitch": -25.1342,
         "imageUrl": "/lib/images/arrow.png",
         "imageWidth": 50,
@@ -29,7 +29,7 @@
       },
       {
         "title": "scene10",
-        "yaw": 52.0574,
+        "yaw": -16.5478,
         "pitch": -26.413,
         "imageUrl": "/lib/images/arrow.png",
         "imageWidth": 50,
