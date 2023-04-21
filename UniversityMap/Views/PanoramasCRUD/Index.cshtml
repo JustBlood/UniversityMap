@@ -1,76 +1,103 @@
 ﻿<div class="block-body">
-@model IEnumerable<UniversityMap.Models.Panorama>
+@model UniversityMap.Models.Panorama
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Администрирование панорам";
 }
 
-<h1>Index panoramas</h1>
+<h1>Администрирование Панорам</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tag)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Left)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Top)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Right)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bottom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Map)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tag)
-            </td>
-            <td>
-                @if (item.Image != null)
-                {
-                    <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Left)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Top)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Right)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bottom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Map.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container--between">
+    <p>
+        <a asp-action="Create">
+            <button asp-action="Create">Создать панораму</button>
+        </a>
+    </p>
+    <form id="link-form" style="margin-left: 10vw">
+      <label for="link-input">Введите номер искомой панорамы:</label>
+      <input type="text" id="link-input" name="id">
+      <button type="submit" id="find-button">Перейти</button>
+    </form>
+</div>
+@if (Model != null)
+    {
+        <div class="container">
+            <h2>Панорама №@Model.Id</h2>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tag)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Left)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Top)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Right)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bottom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Map)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Tag)
+                    </td>
+
+                    @if (Model.Image != null)
+                    {
+                        <td>
+                            <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
+                        </td>
+                    }
+
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Left)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Top)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Right)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Bottom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Map.Id)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@Model.Id">Детали</a> |
+                        <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
+                    </td>     
+                </tr>
+            </tbody>
+        </table>
+        <div class="container">
+            @if ((int)ViewData["id"]-1 > 0)
+            {
+                <a href="/PanoramasCRUD?id=@((int)ViewData["id"]-1)" style="margin-right: 2vw">
+                    Предыдущая (№@((int)ViewData["id"]-1))
+                </a>
+            }
+            <p>Текущая панорама - №@Model.Id</p>
+            <a href="/PanoramasCRUD?id=@((int)ViewData["id"]+1)" style="margin-left: 2vw">
+                Следующая (№@((int)ViewData["id"]+1))
+            </a>
+        </div>
+    }
 </div>

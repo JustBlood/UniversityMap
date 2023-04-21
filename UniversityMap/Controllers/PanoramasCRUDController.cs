@@ -23,11 +23,21 @@ namespace UniversityMap.Controllers
 
 
         // GET: Panoramas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            // переделать под json?
-            var universityMapContext = _context.Panoramas.Include(p => p.Map);
-            return View(await universityMapContext.ToListAsync());
+            Panorama panorama;
+            if (id == null)
+            {
+                panorama = await _context.Panoramas.FirstOrDefaultAsync();
+                id = panorama?.Id;
+            }
+            else
+            {
+                panorama = await _context.Panoramas.FirstOrDefaultAsync(x => x.Id == id);
+            }
+            ViewData["id"] = id;
+            
+            return View(panorama);
         }
 
         // GET: Panoramas/Details/5
