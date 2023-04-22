@@ -23,19 +23,18 @@ namespace UniversityMap.Controllers
 
 
         // GET: Panoramas
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index(string? tag)
         {
             Panorama panorama;
-            if (id == null)
+            if (tag == null)
             {
                 panorama = await _context.Panoramas.FirstOrDefaultAsync();
-                id = panorama?.Id;
             }
             else
             {
-                panorama = await _context.Panoramas.FirstOrDefaultAsync(x => x.Id == id);
+                panorama = await _context.Panoramas.FirstOrDefaultAsync(x => x.Tag == tag);
             }
-            ViewData["id"] = id;
+            ViewData["id"] = panorama?.Id;
             
             return View(panorama);
         }
