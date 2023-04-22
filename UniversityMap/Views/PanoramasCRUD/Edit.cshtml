@@ -1,0 +1,63 @@
+﻿<div class="block-body">
+@model UniversityMap.Models.Panorama
+
+@{
+    ViewData["Title"] = "Редактирование панорамы";
+}
+
+    <h1>Редактировать панораму</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form class="box-form-create" id="myform" asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input asp-for="Tag" class="form-control" placeholder="Tag" required/>
+                <span asp-validation-for="Tag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Image" class="form-control" type="file" placeholder="Image" required/>
+            </div>
+            <div class="form-group">
+                <input asp-for="PanoramaOptionsScript" class="form-control" placeholder="PanoramaOptionsScript" required/>
+                <span asp-validation-for="PanoramaOptionsScript" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Left" class="form-control" placeholder="Left" />
+                <span asp-validation-for="Left" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Top" class="form-control" placeholder="Top" />
+                <span asp-validation-for="Top" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Right" class="form-control" placeholder="Right" />
+                <span asp-validation-for="Right" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Bottom" class="form-control" placeholder="Bottom" />
+                <span asp-validation-for="Bottom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MapId" class="control-label"></label>
+                <select asp-for="MapId" class="form-control" asp-items="ViewBag.MapId" required></select>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="" class="btn btn-primary">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">
+        <button asp-action="Index">Назад</button>
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</div>

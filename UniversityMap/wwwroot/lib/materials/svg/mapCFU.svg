@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 1024"
+	 style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="1280" width="1920" x="67.93" y="17.89"></sliceSourceBounds>
+		<optimizationSettings></optimizationSettings>
+	</sfw>
+</metadata>
+<g id="Слой_1" class="st0">
+</g>
+<g id="Слой_2">
+	<polygon class="st1" points="88.71,847.91 118.65,847.95 118.7,809.86 88.75,809.83 89,573.42 177.48,573.51 177.23,809.92 
+		147.28,809.89 147.24,847.98 332.36,848.17 554.23,848.41 554.29,801.13 543.4,801.12 554.64,470.16 602.28,470.21 602,435 
+		634.98,436 634.95,471.56 670.34,471.6 656.37,801.24 636.64,801.22 636.58,852.44 913.58,852.73 905.3,965.68 708.38,965.46 
+		708.4,944.45 455.45,944.18 174.36,943.88 174.29,1005.61 88.54,1005.52 	"/>
+	<polygon class="st1" points="68.43,412.32 656.46,437.27 667.35,317.76 294.38,301.4 68.43,291.49 68.43,346.65 	"/>
+	<polygon class="st1" points="814.36,25.53 972.26,33.41 959.76,191.3 951.84,291.49 931.42,291.49 931.42,328.92 964.09,328.92 
+		951.84,451.06 656.46,437.27 667.35,317.76 857.92,324.98 857.92,291.49 792.58,291.49 803.41,159.23 	"/>
+</g>
+</svg>

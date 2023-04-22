@@ -1,0 +1,46 @@
+﻿<div class="block-body">
+@model Panorama
+
+@if (Model != null && Model.Image != null)
+{
+    @section Scripts
+    {
+        <link rel="stylesheet" href="~/css/panorama/effect.css"> 
+        <!-- ipanorama styles -->
+        <link rel="stylesheet" href="~/css/panorama/ipanorama.css">
+        <link rel="stylesheet" href="~/css/panorama/ipanorama.theme.default.css">
+        <!-- /end ipanorama styles -->
+        <!-- main style -->
+        <style>
+        /*.block-body {
+            width: 1280px;
+            height: 800px;
+        }*/
+
+        #mypanorama {
+            margin: auto auto;
+            height: 90vh;
+        }
+        </style>
+            <script src="~/js/panorama/jquery.min.js"></script>
+            <script src="~/js/panorama/three.min.js"></script>
+            <script src="~/js/panorama/jquery.ipanorama.min.js"></script>
+        <script type="text/javascript">
+        @Html.Raw(@ViewData["PanoramaOptionsScript"])
+        </script>
+}
+}
+
+@if (Model != null && Model.Image != null)
+{
+    <div id="mypanorama"></div>
+    @*<img src="@Url.Action("show", new { @Model.Id })">*@
+    @*<img src="~/lib/images/info.png">
+    <img src="~/lib/images/arrow.png">*@
+}
+else
+{
+    <h1>Увы, у панорамы нэма картинки(</h1>
+    <h2>(Или панорамы не существует)</h2>
+}
+</div>

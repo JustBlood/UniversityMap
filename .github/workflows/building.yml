@@ -5,9 +5,12 @@ name: .NET
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches:
+    - "**"
   pull_request:
-    branches: [ "main", "develop" ]
+    branches:
+      - "main"
+      - "develop"
 
 jobs:
   build:
@@ -21,6 +24,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./UniversityMap/UniversityMap.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ./UniversityMap/UniversityMap.csproj --no-restore
