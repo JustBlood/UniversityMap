@@ -199,8 +199,9 @@ h1, h2, h3 {
 }
 
 .box {
-    width: 400px;
-    padding: 0 30px 20px 30px;
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
     margin: 40px auto;
     background: #FFFEEB;
     border-radius: 0.5em;
@@ -225,13 +226,13 @@ h1, h2, h3 {
     letter-spacing: 0.1em;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
-    width: 366px;
+    max-width: 366px;
 }
 
-    .box-form input:focus {
-        outline: none;
-        border: 2px solid #C37E57;
-    }
+.box-form input:focus {
+    outline: none;
+    border: 2px solid #C37E57;
+}
 
 .box-form-create {
     display: flex;
