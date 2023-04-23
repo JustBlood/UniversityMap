@@ -1,0 +1,45 @@
+"scene1": {
+    "type": "cylinder",
+    "cubeTextureCount": "single",
+    "sphereWidthSegments": 100,
+    "sphereHeightSegments": 40,
+    "image": "+",
+    "yaw": -53.3104,
+    "pitch": -1.6664,
+    "saveCamera": true,
+    "title": null,
+    "titleHtml": false,
+    "titleSelector": null,
+    "hotSpots": [
+      {
+        "title": "scene7",
+        "yaw": -37.3104,
+        "pitch": -29.6664,
+        "imageUrl": "/lib/images/arrow.png",
+        "imageWidth": 50,
+        "imageHeight": 50,
+        "link": "{{ right }}",
+        "linkNewWindow": false,
+        "popoverHtml": true,
+        "popoverContent": null,
+        "popoverSelector": null,
+        "popoverLazyload": true,
+        "popoverShow": false
+      },
+      {
+        "title": "scene5",
+        "yaw": 139.8154,
+        "pitch": -23.1278,
+        "imageUrl": "/lib/images/arrow.png",
+        "imageWidth": 50,
+        "imageHeight": 50,
+        "link": "{{ left }}",
+        "linkNewWindow": false,
+        "popoverHtml": true,
+        "popoverContent": null,
+        "popoverSelector": null,
+        "popoverLazyload": true,
+        "popoverShow": false
+      }
+    ]
+  },

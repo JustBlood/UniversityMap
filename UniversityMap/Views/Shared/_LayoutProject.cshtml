@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="shortcut icon" href="~/lib/materials/design/logo.png">
+    <title>@ViewData["Title"] - UniversityMap</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" asp-controller="Home" asp-action="Index">           
+            <img src="~/lib/materials/design/logo.png">
+            <span>CFU-Map</span>           
+        </a>
+        
+        <ul class="top-menu">
+            <li>
+                <a asp-controller="Home" asp-action="Index">О проекте</a>
+            </li>
+            <li>
+                <a asp-controller="Maps" asp-action="Index">Карты</a>
+            </li>
+            <li>
+                <a asp-controller="Panorama" asp-action="Index">Панорамы</a>
+            </li>
+            @if (User.IsInRole("admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">Администрирование Карт</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">Администрирование Панорам</a>
+                </li>
+            }
+        </ul>
+        <ul class="top-menu in_out">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        <input type="hidden" />
+                        <a href="#" onclick="this.parentNode.submit()">Выйти</a>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                </li>
+            }
+        </ul>       
+    </header>
+
+    <div id="body-wrapper">
+        @RenderBody()
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - UniversityMap - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>

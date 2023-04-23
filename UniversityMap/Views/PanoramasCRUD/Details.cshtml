@@ -1,0 +1,75 @@
+﻿<div class="block-body">
+@model UniversityMap.Models.Panorama
+
+@{
+    ViewData["Title"] = "Детали панорамы";
+}
+
+<h1>Детали панорамы</h1>
+
+<div>
+    <h4>Панорама</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Image != null)
+            {
+                <img style='height:300px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PanoramaOptionsScript)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PanoramaOptionsScript)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Left)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Left)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Top)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Top)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Right)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Right)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bottom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bottom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Map)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Map.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">
+        <button asp-action="Edit">Редактировать</button>
+    </a> |
+    <a asp-action="Index">
+        <button asp-action="Index">Назад</button>
+    </a>
+</div>
+</div>

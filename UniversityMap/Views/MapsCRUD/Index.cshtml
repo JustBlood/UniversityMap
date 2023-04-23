@@ -1,0 +1,78 @@
+﻿<div class="block-body">
+@model IEnumerable<UniversityMap.Models.Map>
+
+@{
+    ViewData["Title"] = "Администрирование карт";
+}
+
+<h1>Администрирование Карт</h1>
+
+<p>
+    <a asp-action="Create">
+        <button asp-action="Create">Создать карту</button>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Floor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SvgMap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JQueryScript)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
+            <td>
+                @{
+                    if (item.SvgMap != null
+                        && item.SvgMap.Length > 50)
+                    {
+                        @item.SvgMap.Substring(0, 50)
+                    }
+                    else
+                    {
+                        @item.SvgMap
+                    }
+                }
+                
+            </td>
+            <td>
+                @{
+                    if (item.JQueryScript != null
+                        && item.JQueryScript.Length > 50)
+                    {
+                        @item.JQueryScript.Substring(0, 50)
+                    }
+                    else
+                    {
+                        @item.JQueryScript
+                    }
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
