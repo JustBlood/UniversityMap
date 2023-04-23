@@ -6,13 +6,14 @@
         <form class="box-form" method="post" asp-controller="Account" asp-action="Login"
               asp-route-returnUrl="/Home">
             <div asp-validation-summary="ModelOnly"></div>
-            
+            <div>
                 <input asp-for="Email" placeholder="Электронная почта"/>
                 <span asp-validation-for="Email"></span>
-            
+            </div>
+            <div>
                 <input asp-for="Password" placeholder="Пароль" />
                 <span asp-validation-for="Password"></span>
-            
+            </div>
             <div id="check">
                 <label asp-for="RememberMe"></label>
                 <input asp-for="RememberMe" />
