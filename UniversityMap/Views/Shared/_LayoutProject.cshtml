@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header class="desktop-header">
+    <header>
         <a class="logo" asp-controller="Home" asp-action="Index">           
             <img src="~/lib/materials/design/logo.png">
             <span>CFU-Map</span>           
@@ -28,16 +28,11 @@
             </li>
             @if (User.IsInRole("admin"))
             {
-                <li>
-                    <a href="#">Администрирование</a>
-                    <ul class="sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">Карт</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">Панорам</a>
-                        </li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">Администрирование Карт</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">Администрирование Панорам</a>
                 </li>
             }
         </ul>
@@ -61,63 +56,6 @@
                 </li>
             }
         </ul>       
-    </header>
-
-    <header class="mobile-header">
-        <a class="logo" asp-controller="Home" asp-action="Index">
-            <img src="~/lib/images/menu.png">
-            <span>CFU-Map</span>
-        </a>
-
-        <nav class="mobile-menu">
-            <ul class="menu">
-                <li>
-                    <a href="#"><img src="~/lib/materials/design/menu.png"></a>
-                    <div id="popover">
-                        <ul class="top-menu">
-                            <li>
-                                <a asp-controller="Home" asp-action="Index">О проекте</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Maps" asp-action="Index">Карты</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Panorama" asp-action="Index">Панорамы</a>
-                            </li>
-
-                            @if (User.IsInRole("admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="MapsCRUD" asp-action="Index">Администрирование Карт</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="PanoramasCRUD" asp-action="Index">Администрирование Панорам</a>
-                                </li>
-                            }
-
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item">
-                                    <form method="post" asp-controller="Account" asp-action="Logout">
-                                        <input type="hidden" />
-                                        <a href="#" onclick="this.parentNode.submit()">Выйти</a>
-                                    </form>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
-                                </li>
-                            }                           
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
     </header>
 
     <div id="body-wrapper">
